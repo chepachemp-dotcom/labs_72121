@@ -1,0 +1,34 @@
+{
+  "MLP": {
+    "params": 235146,
+    "thop_macs": 234752.0,
+    "thop_flops": 469504.0,
+    "lat_b1_ms": 0.04270000499673188,
+    "lat_b128_ms": 0.25690000620670617,
+    "val_acc": 0.8904,
+    "test_acc": 0.8825
+  },
+  "CNN": {
+    "params": 20490,
+    "thop_macs": 1031744.0,
+    "thop_flops": 2063488.0,
+    "lat_b1_ms": 0.10145001579076052,
+    "lat_b128_ms": 4.725749982753769,
+    "val_acc": 0.8988,
+    "test_acc": 0.8919
+  },
+  "Attention": {
+    "params": 70794,
+    "thop_macs": 591488.0,
+    "thop_flops": 1182976.0,
+    "lat_b1_ms": 0.2885999856516719,
+    "lat_b128_ms": 2.4814500065986067,
+    "val_acc": 0.8434,
+    "test_acc": 0.8324
+  },
+  "hand_flops": {
+    "MLP Linear 784->256": 401408,
+    "CNN Conv2 (16->32, 3x3, 14x14 out)": 1806336,
+    "Attn encoder layer (seq16,d64,ff128)": 1114112
+  }
+}
