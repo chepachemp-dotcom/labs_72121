@@ -18,14 +18,14 @@ Per encoder layer: in_proj 12,480 + out_proj 4,160 + FFN 8,320 + 8,256 + 2 Layer
 ## 3. FLOPs: hand vs measured (per sample, 1 MAC = 2 FLOPs)
 | Layer | Hand formula | Hand FLOPs | thop (x2 MACs) |
 |---|---|---|---|
-| MLP Linear 784->256 | 2 x 784 x 256 | 401,408 | <fill> |
-| CNN Conv2d 16->32, 14x14 out | 2 x 3 x 3 x 16 x 32 x 14 x 14 | 1,806,336 | <fill> |
+| MLP Linear 784->256 | 2 x 784 x 256 | 401,408 | <401,408> |
+| CNN Conv2d 16->32, 14x14 out | 2 x 3 x 3 x 16 x 32 x 14 x 14 | 1,806,336 | <1,806,336> |
 | Attn QKV proj | 2 x 16 x 64 x 192 | 393,216 | |
 | Attn scores QK^T | 2 x 16^2 x 64 | 32,768 | |
 | Attn weights x V | 2 x 16^2 x 64 | 32,768 | |
 | Attn output proj | 2 x 16 x 64 x 64 | 131,072 | |
 | Attn FFN (64->128->64) | 2 x (2 x 16 x 64 x 128) | 524,288 | |
-| **Attn layer total** | | **1,114,112** | <fill> |
+| **Attn layer total** | | **1,114,112** | <1,114,112> |
 
 (CNN conv1: 2 x 9 x 1 x 16 x 28 x 28 = 225,792.)
 
