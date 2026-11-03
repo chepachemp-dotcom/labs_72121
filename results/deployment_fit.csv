@@ -1,0 +1,9 @@
+model,tier,peak_rss_mb,memory_ok,latency_ms,latency_ok,size_kb,size_ok,fits
+LogisticRegression,Cloud,324.75,True,0.043,True,1.08,True,True
+LogisticRegression,Edge,324.75,True,0.043,True,1.08,True,True
+LogisticRegression,Mobile,324.75,False,0.043,True,1.08,True,False
+LogisticRegression,TinyML,324.75,False,0.043,True,1.08,True,False
+RandomForest,Cloud,324.92,True,0.9402,True,284.09,True,True
+RandomForest,Edge,324.92,True,0.9402,True,284.09,True,True
+RandomForest,Mobile,324.92,False,0.9402,True,284.09,True,False
+RandomForest,TinyML,324.92,False,0.9402,True,284.09,False,False
