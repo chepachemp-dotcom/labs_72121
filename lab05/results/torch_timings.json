@@ -1,0 +1,40 @@
+{
+  "torch_version": "2.14.1+cpu",
+  "eager_vs_compiled": {
+    "batch_256": {
+      "torch.compile": "unsupported: InductorError: InvalidCxxCompiler: Compiler: cl is not found.",
+      "eager": {
+        "forward_us": 31.35360000305809,
+        "forward_backward_us": 295.6269999995129
+      },
+      "jit.trace": {
+        "forward_us": 39.876599999843165,
+        "forward_backward_us": 367.77719999372493
+      }
+    },
+    "batch_65536": {
+      "torch.compile": "unsupported: InductorError: InvalidCxxCompiler: Compiler: cl is not found.",
+      "eager": {
+        "forward_us": 1414.7010000306182,
+        "forward_backward_us": 3325.576999995974
+      },
+      "jit.trace": {
+        "forward_us": 1202.2750000323867,
+        "forward_backward_us": 3729.8339999688324
+      }
+    }
+  },
+  "contiguity_ms": {
+    "A * 2 (contiguous)": 6.742020000820048,
+    "A.t() * 2 (transposed view)": 6.756739999400452,
+    "A[:, ::2] * 2 (strided view)": 4.505500000959728,
+    "A + A (both contiguous)": 7.041820000449661,
+    "A + A.t() (mixed layouts)": 70.42796000023372,
+    "A.t().contiguous() (copy cost)": 47.44904000108363
+  },
+  "tensor_properties": {
+    "A": "A: shape=(4096, 4096) dtype=torch.float32 contiguous=True stride=(4096, 1)",
+    "A.t()": "A.t(): shape=(4096, 4096) dtype=torch.float32 contiguous=False stride=(1, 4096)",
+    "A[:, ::2]": "A[:, ::2]: shape=(4096, 2048) dtype=torch.float32 contiguous=False stride=(4096, 2)"
+  }
+}
