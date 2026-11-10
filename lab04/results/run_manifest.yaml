@@ -1,0 +1,72 @@
+config:
+  dataset:
+    name: adult
+    version: 2
+  seed: 42
+  test_size: 0.3
+  clip_quantiles:
+  - 0.01
+  - 0.99
+  expected:
+    rows: 48842
+    cols: 15
+  paths:
+    raw_csv: ../data/adult_raw.csv
+    results_dir: results
+  target: income
+  positive_label: '>50K'
+  schema:
+    types:
+      age: int
+      workclass: category
+      fnlwgt: int
+      education: category
+      education-num: int
+      marital-status: category
+      occupation: category
+      relationship: category
+      race: category
+      sex: category
+      capital-gain: int
+      capital-loss: int
+      hours-per-week: int
+      native-country: category
+      income: category
+    ranges:
+      age:
+      - 17
+      - 90
+      hours-per-week:
+      - 1
+      - 99
+      capital-gain:
+      - 0
+      - 99999
+      capital-loss:
+      - 0
+      - 4356
+    missing_token: '?'
+    allowed_income:
+    - <=50K
+    - '>50K'
+hashes:
+  train: 71b349a557facae96c7b16701ce9ae45a8b00bd80b1188c484cf656ecdeae642
+  test: ba6a19169035989a50c07d3729e82f30ef74adfe8d761c096ab9a7834197be24
+  combined: f74ee1c542b1d80bb163d9cef983a1410eaf843dad64cba980e395e634c76b17
+metrics:
+  without_derived:
+    accuracy: 0.8539548215382515
+    f1: 0.6601016518424396
+  with_derived:
+    accuracy: 0.8577765645260357
+    f1: 0.6696258719086874
+label_audit:
+  conflicting_feature_groups: 5
+  rows_in_conflicting_groups: 10
+  sample50_auto_flagged: 0
+validation_violations: 0
+versions:
+  python: 3.14.3
+  sklearn: 1.8.0
+  pandas: 3.0.1
+  numpy: 2.4.3
