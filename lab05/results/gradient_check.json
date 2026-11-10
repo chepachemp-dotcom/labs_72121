@@ -1,0 +1,19 @@
+{
+  "expression": "((a*b + c)**2).relu().sum()",
+  "forward_value": {
+    "micrograd": 15.04549453875156,
+    "numeric": 15.04549453875156,
+    "torch": 15.045494538751562
+  },
+  "max_abs_diff_micrograd_vs_numeric": 1.362572277230356e-10,
+  "max_abs_diff_micrograd_vs_torch": 0.0,
+  "max_abs_diff_torch_vs_numeric": 1.362572277230356e-10,
+  "passes_1e-6": true,
+  "accumulation_test": {
+    "micrograd_dx": 72.17100000000002,
+    "micrograd_dy": 32.80500000000001,
+    "torch_dx": 72.17100000000002,
+    "torch_dy": 32.80500000000001,
+    "max_abs_diff": 0.0
+  }
+}
